@@ -1,0 +1,554 @@
+[colors]
+background = ${xrdb:color0}
+foreground = ${xrdb:color6}
+foreground-alt=${xrdb:color0}
+
+i3_background = ${xrdb:color3}
+i3_foreground = ${xrdb:color7}
+i3_urgent_background = ${xrdb:color5}
+i3_unfocused_foreground = ${xrdb:color2}
+
+status_good = ${xrdb:color7}
+status_sub = ${xrdb:color6}
+status_bad = ${xrdb:color5}
+
+line-color = #FFFFFF
+transparent = #00FFFFFF
+
+tray_background = #00FFFFFF 
+
+[const]
+width = 100%
+height = 32
+clickarea = 25
+
+border-left-size = 10
+border-right = 10
+border-top = 2
+
+module-margin-left = 0
+module-margin-right = 4
+
+spacing = 1
+line-height = 4 
+
+line-size = 3
+
+radius = 10
+radius-top = 4
+radius-bottom = 0
+
+;font-4 = FontAwesome:size=16;3
+;font-1 = misc tamsyn:pixelsize=16;2
+;font-3 = Unifont:size=11;3
+;font-2 = symbola:size=18;3
+;font-0 = Wuncon Siji:pixelsize=11;3
+
+#font-0 = Wuncon Siji:pixelsize=11;3
+font-0 = NotoSans-Regular:size=11;3
+font-1 = NotoEmoji:size=11;3
+#font-1 = misc tamsyn:pixelsize=18;2
+font-2 = FontAwesome5Free:style=Solid:size=15;3
+font-3 = FontAwesome5Brands:style=Solid:size=15;3
+font-4 = symbola:size=18;3
+font-5 = FiraMono:NotoEmoji:pixelsize=11;3
+font-emoji-n = 6
+
+;font-1 = misc tamsyn:pixelsize=16;2
+;font-2 = Unifont:size=11;3
+;font-3 = symbola:size=18;3
+;font-4 = Wuncon Siji:pixelsize=11;3
+
+;SanFranSiscoDisplay:size=14:weight=regular;0;
+;
+[bar/center]
+monitor = eDP-1
+width = ${const.width}
+height = ${const.height}
+clickareas = ${const.clickareas}
+background = ${colors.background}
+foreground = ${colors.foreground}
+line-color = ${colors.line-color}
+line-size = ${const.line-size}
+border-color = ${colors.transparent}
+border-left-size = ${const.border-left-size}
+border-right-size = ${const.border-right}
+border-top-size = ${const.border-top}
+;border-radius-top = ${const.radius-top}
+;border-radius-bottom = ${const.radius-bottom}
+;border-radius = ${const.radius}
+radius = 5
+module-margin-left = ${const.module-margin-left}
+module-margin-right = ${const.module-margin-right}
+spacing = ${const.spacing}
+lineheight = ${const.lineheight}
+font-0 = ${const.font-0}
+font-1 = ${const.font-1}
+font-2 = ${const.font-2}
+font-3 = ${const.font-3}
+font-4 = ${const.font-4}
+font-5 = ${const.font-5}
+modules-left = i3 
+modules-center = music spotipy weather
+modules-right = pulseaudio netspeed wireless-network backlight battery clock
+
+[bar/right]
+monitor = ${env:MONITOR:HDMI-1}
+modules-left = i3 
+modules-center = clock
+modules-right = cpu filesystem coretemps vpncheck volume battery menu0
+width = ${const.width}
+height = ${const.height}
+clickareas = ${const.clickareas}
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+line-color = ${colors.line-color}
+border-color = ${colors.transparent}
+border-left-size = ${const.border-left-size}
+border-right-size = ${const.border-right}
+border-top-size = ${const.border-top}
+radius = 5
+module-margin-left = ${const.module-margin-left}
+module-margin-right = ${const.module-margin-right}
+spacing = ${const.spacing}
+lineheight = ${const.lineheight}
+
+font-0 = ${const.font-0}
+font-1 = ${const.font-1}
+font-2 = ${const.font-2}
+font-3 = ${const.font-3}
+font-4 = ${const.font-4}
+font-5 = ${const.font-5}
+
+;tray-position = right
+tray-background = ${colors/tray_background}
+
+[bar/third]
+monitor = ${env:MONITOR:DP-2}
+modules-left = i3 
+modules-center = clock
+modules-right = cpu filesystem coretemps vpncheck volume battery menu0
+width = ${const.width}
+height = ${const.height}
+clickareas = ${const.clickareas}
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+line-color = ${colors.line-color}
+border-color = ${colors.transparent}
+border-left-size = ${const.border-left-size}
+border-right-size = ${const.border-right}
+border-top-size = ${const.border-top}
+radius = 5
+module-margin-left = ${const.module-margin-left}
+module-margin-right = ${const.module-margin-right}
+spacing = ${const.spacing}
+lineheight = ${const.lineheight}
+
+font-0 = ${const.font-0}
+font-1 = ${const.font-1}
+font-2 = ${const.font-2}
+font-3 = ${const.font-3}
+font-4 = ${const.font-4}
+font-5 = ${const.font-5}
+
+;tray-position = right
+tray-background = ${colors/tray_background}
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = ADP1
+full-at = 99
+
+format-charging =<animation-charging>  %{F#e9a15f}%{F-} <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+format-full = <ramp-capacity> <label-full>
+
+ramp-capacity-0 = 
+ramp-capacity-0-foreground = ${colors.status_bad}
+ramp-capacity-1 = 
+ramp-capacity-1-foreground = ${colors.status_sub}
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+bar-capacity-width = 10
+bar-capacity-format = %{+u}%{+o}%fill%%empty%%{-u}%{-o}
+bar-capacity-fill = 
+bar-capacity-fill-foreground = ${colors.good}
+bar-capacity-fill-font = 3
+bar-capacity-empty = 
+bar-capacity-empty-font = 3
+bar-capacity-empty-foreground = ${colors.bad}
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 1000
+
+[module/i3]
+type = internal/i3
+font = symbola
+
+pin-workspaces = true
+strip-wsnumbers = true
+index-sort = true
+label-focused = %name%
+label-focused-foreground = ${colors.i3_foreground}
+label-focused-background = ${colors.i3_background}
+label-focused-underline = ${colors.foreground}
+label-focused-padding = 6
+label-focused-maxlen = 2 
+label-focused-ellipsis = true
+
+label-unfocused = %name%
+label-unfocused-foreground = ${colors.i3_unfocused_foreground}
+label-unfocused-padding = 4
+label-unfocused-maxlen = 2
+label-unfocused-ellipsis = false
+
+label-visible = %name%
+label-visible-padding = 4
+label-visible-maxlen = 2 
+
+label-urgent = %name%
+label-urgent-foreground = ${colors.i3_foreground}
+label-urgent-background = ${colors.i3_urgent_background}
+label-urgent-padding = 4
+label-urgent-maxlen = 2
+
+[module/netspeed]
+type = internal/network
+interface = wlp7s0
+interval = 0.5
+label-connected = D: %downspeed% U: %upspeed%
+
+[module/wireless-network]
+type = internal/network
+interface = wlp7s0
+interval = 3.0
+ping-interval = 1
+click-left = exec nm-connection-editor
+
+label-connected = %essid%
+#label-connected-font = 1 ${const.font-emoji-n}
+#format-packetloss = <animation-packetloss> <label-connected>
+format-connected = %{A:nm-connection-editor&:}<ramp-signal> <label-connected>%{A}
+
+label-disconnected = %{A:nm-connection-editor&:} not connected%{A}
+label-disconnected-foreground = #66
+
+ramp-signal-0 = 
+ramp-signal-0-foreground = ${colors.status_bad}
+ramp-signal-1 = 
+ramp-signal-1-foreground = ${colors.status_sub}
+ramp-signal-2 = 
+ramp-signal-2-foreground = ${colors.status_sub}
+ramp-signal-3 = 
+ramp-signal-3-foreground = ${colors.status_good}
+ramp-signal-4 = 
+ramp-signal-4-foreground = ${colors.status_good}
+
+animation-packetloss-0 = 
+animation-packetloss-0-foreground = ${colors.status_bad}
+animation-packetloss-1 = 
+animation-packetloss-1-foreground = ${colors.status_sub}
+animation-packetloss-framerate = 500
+
+[module/volume]
+type = alsa/volume
+
+format-volume = <ramp-volume> <label-volume>
+
+label-muted = %{F#dd7e66}%{F-} %{F#CCC}muted%{F-}
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-volume-3 = 
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+; Sink to be used, if it exists (find using `pacmd list-sinks`, name field)
+; If not, uses default sink
+sink = alsa_output.pci-0000_12_00.3.analog-stereo
+
+; Use PA_VOLUME_UI_MAX (~153%) if true, or PA_VOLUME_NORM (100%) if false
+; Default: true
+use-ui-max = true
+
+; Available tags:
+;   <label-volume> (default)
+;   <ramp-volume>
+;   <bar-volume>
+format-volume = <ramp-volume> <label-volume>
+
+; Available tags:
+;   <label-muted> (default)
+;   <ramp-volume>
+;   <bar-volume>
+;format-muted = <label-muted>
+
+; Available tokens:
+;   %percentage% (default)
+;label-volume = %percentage%%
+
+; Available tokens:
+;   %percentage% (default)
+label-muted = 🔇 muted
+label-muted-foreground = #66
+
+; Only applies if <ramp-volume> is used
+ramp-volume-0 = 🔈
+ramp-volume-1 = 🔉
+ramp-volume-2 = 🔊
+
+[module/mpd]
+type = custom/script
+exec = $HOME/.config/polybar/Zscroll.sh
+tail = true
+
+label-foreground = ${colors.foreground}
+
+[module/play_music]
+type = custom/script
+exec = ~/.scripts/play_music.py
+
+label-foreground = ${colors.i3_foreground}
+label-maxlen = 50
+label-ellipsis = true
+# label-underline = 
+
+[module/i3status]
+type = custom/script
+exec = i3status
+
+label-foreground = ${colors.i3_foreground}
+label-maxlen = 50
+label-ellipsis = true
+
+[module/clock]
+type = internal/date
+interval = 1
+date = %H:%M
+
+format-background = ${colors.background}
+format-foreground = ${colors.foreground}
+format-padding = 3
+
+
+[module/weather]
+type = custom/script
+interval = 120
+#label-font = ${const.font-emoji-n}
+format = <label>
+format-prefix-foreground = ${colors.foreground}
+exec = $HOME/.config/polybar/weather.sh
+click-left = exec xdg-open 'https://www.accuweather.com/en/ch/lugano/1671/hourly-weather-forecast/1671'
+
+[module/xwindow]
+type = internal/xwindow
+label = %title%
+label-maxlen = 50
+
+[module/backlight]
+type = internal/backlight
+
+; Use the following command to list available cards:
+; $ ls -1 /sys/class/backlight/
+card = intel_backlight
+; Available tags:
+;   <label> (default)
+;   <ramp>
+;   <bar>
+format = <ramp>
+
+; Available tokens:
+;   %percentage% (default)
+label = BL: %percentage%%
+
+; Only applies if <ramp> is used
+ramp-0 = 🌕
+ramp-1 = 🌔
+ramp-2 = 🌓
+ramp-3 = 🌒
+ramp-4 = 🌑
+
+; Only applies if <bar> is used
+bar-width = 2
+bar-indicator = |
+bar-fill = ─
+bar-empty = ─
+
+# vim:filetype=dosini
+# mousepad:filetype=dosini
+
+[module/spotipy]
+type = custom/script
+exec = ~/.config/polybar/spotifyS
+exec-if = pgrep spotify > /dev/null
+interval = 2.0
+click-left = playerctl -p spotify play-pause
+format-foreground = ${colors.foreground}
+# format-background = #191A29
+format-padding = 2
+label = "%output%"
+content = 
+content-foreground = #23B37A
+
+[module/music]
+type = custom/script
+exec = ~/.config/polybar/music
+exec-if = pgrep lollypop > /dev/null
+interval = 2.0
+click-left = playerctl -p lollypop play-pause
+format-foreground = ${colors.foreground}
+# format-background = #191A29
+format-padding = 2
+label = "%output%"
+content = 🎵
+content-foreground = #23B37A
+
+[module/pub-ip]
+type = custom/script
+exec = $HOME/.config/polybar/pub-ip.sh
+interval = 100
+;format-underline = ${colors.line-color}
+format-underline = #dc322f
+format = <label> 
+label = %output%
+
+[module/pkg]
+type = custom/script
+interval = 1200
+format = <label>
+format-underline = #dc322f
+label = "%output:0:30%"
+exec = .config/polybar/pkg.sh
+exec-if = "ping -q -w 2 -c 1 176.34.135.167 > /dev/null"
+
+[module/vpncheck]
+type = custom/script
+exec = pgrep openvpn
+interval = 29
+label = vpn
+format-underline = #268bd2
+format-prefix = " "
+format-prefix-foreground = #5b
+
+[module/coretemps]
+type = custom/script
+interval = 10
+exec-if = sensors
+exec = ~/.config/polybar/tempcores.sh
+
+[module/redshift]
+type = custom/script
+interval = 5
+click-left = pkill -USR1 redshift
+click-right = pgrep redshift &> /dev/null || redshift &> /dev/null &
+
+exec = ~/.config/polybar/redshift.sh
+
+[module/cpu]
+type = internal/cpu
+
+; Seconds to sleep between updates
+; Default: 1
+interval = 0.5
+; Available tags:
+;   <label> (default)
+;   <bar-load>
+;   <ramp-load>
+;   <ramp-coreload>
+label = CPU %percentage%%
+format = <label> <ramp-coreload>
+
+; Available tokens:
+;   %percentage% (default) - total cpu load
+;   %percentage-cores% - load percentage for each core
+;   %percentage-core[1-9]% - load percentage for specific core
+
+ramp-coreload-0 = ▁
+ramp-coreload-1 = ▂
+ramp-coreload-2 = ▃
+ramp-coreload-3 = ▄
+ramp-coreload-4 = ▅
+ramp-coreload-5 = ▆
+ramp-coreload-6 = ▇
+ramp-coreload-7 = █
+
+[module/filesystem]
+type = internal/fs
+
+; Mountpoints to display
+mount-0 = /
+;mount-1 = /home/la1/
+;mount-2 = /var
+
+; Seconds to sleep between updates
+; Default: 30
+interval = 10
+
+; Display fixed precision values
+; Default: false
+fixed-values = true
+
+; Spacing between entries
+; Default: 2
+spacing = 2
+
+label-mounted = DU: %{F-} %percentage_used%% - %free%
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = ${colors.foreground-alt}
+
+[module/powermenu]
+type = custom/menu
+
+format-spacing = 1
+
+label-open =%{T3} %{T-}
+label-open-foreground = #e60053
+label-close =  cancel
+label-close-foreground = #e60053
+label-separator = |
+label-separator-foreground = #555 
+
+menu-0-0 = reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 = power off
+menu-0-1-exec = menu-open-2
+
+menu-1-0 = cancel
+menu-1-0-exec = menu-open-0
+menu-1-1 = reboot
+menu-1-1-exec = sudo reboot
+
+menu-2-0 = power off
+menu-2-0-exec = sudo poweroff
+menu-2-1 = cancel
+menu-2-1-exec = menu-open-0
+
+
+
+[module/menu0]
+format-spacing = 1
+type = custom/menu
+format-foreground = #e60053
+format = <label-toggle> <menu>
+format-padding = 1
+format-margin = 0
+
+menu-0-0 = " shutdown  " 
+menu-0-0-exec = shutdown now
+menu-0-1 = " restart  "
+menu-0-1-exec = shutdown -r now
+menu-0-2 =   cancel
+label-open = 
+label-close = 
+
+; vim:ft=dosini
