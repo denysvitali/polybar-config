@@ -90,7 +90,7 @@ font-4 = ${const.font-4}
 font-5 = ${const.font-5}
 modules-left = i3 
 modules-center = music spotipy weather
-modules-right = pulseaudio netspeed bluetooth wireless-network backlight battery clock
+modules-right = pulseaudio bluetooth netspeed wireless-network backlight battery clock
 
 [bar/right]
 monitor = ${env:MONITOR:HDMI1}
